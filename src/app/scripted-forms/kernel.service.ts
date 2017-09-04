@@ -29,22 +29,34 @@ export class KernelService {
   ].join('\n')
 
   constructor() {
-    if(isDevMode()) {
-      this.settings = ServerConnection.makeSettings({
-        baseUrl: 'http://localhost:8888'
-      })
-    }
-    else {
-      // this.settings = ServerConnection.makeSettings({})
-      // Use local server
-      this.settings = ServerConnection.makeSettings({
-        baseUrl: 'https://localhost:8888'
-      })
-    }
+
+
+    // if (isDevMode()) {
+    //   this.settings = ServerConnection.makeSettings({
+    //     // wsUrl: 'wss://10.0.0.126:7575',
+    //     baseUrl: 'https://10.0.0.126:7575',
+    //     withCredentials: true,
+    //     requestHeaders: {
+    //       'Authorization': 'token test'
+    //     }
+    //   });
+    // } else {
+    //   // this.settings = ServerConnection.makeSettings({})
+    //   // Use local server
+    //   this.settings = ServerConnection.makeSettings({
+    //     baseUrl: 'https://10.0.0.126:7575'
+    //   })
+    // }
+
+    this.settings = ServerConnection.makeSettings({
+      baseUrl: 'https://10.0.0.126:7575',
+      token: 'test'
+    });
 
     this.options = {
       kernelName: 'python3',
-      serverSettings: this.settings
+      serverSettings: this.settings,
+      path: ''
     };
    }
 
@@ -75,9 +87,9 @@ export class KernelService {
       await Kernel.startNew(this.options).then(newKernel => {
         this.kernel = newKernel
       }).catch(err => {
-        if (err.xhr.status == 403) {
-          window.location.pathname = '/login'
-        }
+        // if (err.xhr.status == 403) {
+        //   window.location.pathname = '/login'
+        // }
         console.error(err);
       })
     })
