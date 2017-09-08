@@ -1,0 +1,20 @@
+<md-input-container>
+  <input mdInput placeholder="Server IP" [(ngModel)]="ip" type="text">
+</md-input-container>
+
+<md-input-container>
+  <input mdInput placeholder="Server Port" [(ngModel)]="port" type="text">
+</md-input-container>
+
+<md-input-container>
+  <input mdInput placeholder="API Token" [(ngModel)]="token" type="text">
+</md-input-container>
+
+<div align="right">
+  <button
+  md-fab
+  (click)="connect()"
+  [disabled]="!(ip && port && token)">
+    <md-icon>device_hub</md-icon>
+  </button>
+</div>

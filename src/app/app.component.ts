@@ -3,7 +3,7 @@ import { Component, OnInit, isDevMode } from '@angular/core';
 // import { Router } from '@angular/router';
 
 // import { TitleService } from './title.service'
-import { KernelService } from './scripted-forms/kernel.service'
+import { KernelService } from './scripted-forms/kernel.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ import { KernelService } from './scripted-forms/kernel.service'
 export class AppComponent implements OnInit {
   pageTitle: string;
 
-  sourceUrl: string
+  sourceUrl: string;
 
   constructor (
     // private myTitleService: TitleService,
@@ -24,17 +24,16 @@ export class AppComponent implements OnInit {
     //   this.updatePageTitle()
     // })
 
-    myKernelSevice.permissionCheck()
+    // myKernelSevice.permissionCheck();
   }
 
   ngOnInit() {
     // this.updatePageTitle()
 
-    if(isDevMode()) {
-      this.sourceUrl = 'http://localhost:8888/forms/downloadsource'
-    }
-    else {
-      this.sourceUrl = '/forms/downloadsource'
+    if (isDevMode()) {
+      this.sourceUrl = 'http://localhost:8888/forms/downloadsource';
+    } else {
+      this.sourceUrl = '/forms/downloadsource';
     }
   }
 

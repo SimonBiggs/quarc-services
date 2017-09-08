@@ -6,41 +6,26 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-import { RecordComponent } from './record/record.component';
-import { ViewComponent } from './view/view.component';
-import { EditComponent } from './edit/edit.component'
-import { TrendComponent } from './trend/trend.component';
-import { ShareComponent } from './share/share.component';
+import { FormsComponent } from './forms/forms.component';
+import { ConnectComponent } from './connect/connect.component';
 
 
 const appRoutes: Routes = [
   {
     path: '',
-    component: EditComponent
+    component: ConnectComponent
   },
   {
     path: 'home',
     component: HomeComponent
   },
   {
-    path: 'record',
-    component: RecordComponent
+    path: 'forms',
+    component: FormsComponent
   },
   {
-    path: 'view',
-    component: ViewComponent
-  },
-  {
-    path: 'edit',
-    component: EditComponent
-  },
-  {
-    path: 'trend',
-    component: TrendComponent
-  },
-  {
-    path: 'share',
-    component: ShareComponent
+    path: 'connect',
+    component: ConnectComponent
   },
   {
     path: '**', component: PageNotFoundComponent
