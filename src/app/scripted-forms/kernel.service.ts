@@ -9,9 +9,9 @@ import {
 
 @Injectable()
 export class KernelService {
-  ip = 'localhost';
-  port = '7575';
-  token = '';
+  ip = '10.0.0.126';
+  port = '17575';
+  token = 'dl9CmOMWWPDo4JvhfZjeFRHTcbQKzEI3clU8uUfeN1o';
 
   baseUrl: string;
 
